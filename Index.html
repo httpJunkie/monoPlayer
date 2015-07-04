@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>monoPlayer - A customizable HTML5 (Web Audio API) component</title>
+	<link rel="stylesheet" href="monoPlayer/icons/mfglabs_iconset.css">
+	<link rel="stylesheet" href="monoPlayer/css/monoPlayer.css">
+</head>
+<body>
+	<audio>
+		<source src="monoPlayer/audio/JackMono-LeRayonVert.mp3" type="audio/mpeg">
+		<source src="monoPlayer/audio/JackMono-LeRayonVert.ogg" type="audio/ogg">
+	</audio>
+	<div class="monoPlayer">
+		<button id="play" class="btn"><i class="icon-play"></i></button>
+		<button id="paus" class="btn"><i class="icon-pause"></i></button>
+		<button id="stop" class="btn"><i class="icon-stop"></i></button>
+		<button id="mute" class="btn centericon"><i id="muteIcon" class="icon-mute_off"></i></button>
+	</div>
+	<p>Audio Track: "Le Rayon Vert" by: Eric Bishard aka. Jack Mono</p>
+	<script src="monoPlayer/js/monoPlayer.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+	.monoPlayer {
+		width: 125px;
+		height: 22px;
+		text-align: left;
+		border-radius: 5px;
+		background-color: #424242;
+		padding: 4px;
+	}
+	.btn {
+		background-color: Transparent;
+        background-repeat:no-repeat;
+		color: #efefef;
+        border: none;
+		outline: none;
+        cursor: pointer;
+        overflow: hidden;
+	}
+	/*Required if using MfgLabs-Icons*/
+	.icon-mute_on {
+		margin-left: -0.125em;
+	}
