@@ -2,19 +2,19 @@
 
 monoPlayer
 
-The icons are from MFG Labs and is open source.
-http://mfglabs.github.io/mfglabs-iconset/
-https://github.com/MfgLabs/mfglabs-iconset
-http://creativecommons.org/licenses/by/3.0/deed.en
-http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+The icons are from MFG Labs and is open source.  
+http://mfglabs.github.io/mfglabs-iconset/  
+https://github.com/MfgLabs/mfglabs-iconset  
+http://creativecommons.org/licenses/by/3.0/deed.en  
+http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL  
 
 The music (Jack Mono - Le Rayon Vert) is produced by myself and you are free to do with it as you please for demo purposes only, however, you must link back to httpJunkie.com or me (Eric Bishard aka Jack Mono) if you use it in anything that is visible to humans or the internet. If it's just for your cats, don't worry about it. If you use the music in any way that you stand to make a profit that is considered to be a prohibited use unless cleared through me personally in writing.
 
 ## Code Example
 
-To include the code in your poject copy the `monoplayer` folder into your project: 
+To include the code in your poject copy the `monoplayer` folder into your project:  
 
-Put the folowing code in your `<head>` tag:
+Put the folowing code in your `<head>` tag:  
 
 ```
 	<link rel="stylesheet" href="monoPlayer/icons/mfglabs_iconset.css">
@@ -22,7 +22,7 @@ Put the folowing code in your `<head>` tag:
 	<script src="monoPlayer/js/monoPlayer.js"></script>
 ```
 
-Link to your primary and backup audio files in your `<body>` section.
+Link to your primary and backup audio files in your `<body>` section.  
 
 ```
 	<audio>
@@ -31,7 +31,7 @@ Link to your primary and backup audio files in your `<body>` section.
 	</audio>
 ```
 
-Use the following template anywhere on your page, but inside the `<body>` section.
+Use the following template anywhere on your page, but inside the `<body>` section.  
 
 ```
 	<div class="monoPlayer">
@@ -42,7 +42,7 @@ Use the following template anywhere on your page, but inside the `<body>` sectio
 	</div>
 ```
 
-Finally, link to the JavaScript file near the end of your `<body>` section.
+Finally, link to the JavaScript file near the end of your `<body>` section.  
 
 ```
 	<script src="monoPlayer/js/monoPlayer.js"></script>
