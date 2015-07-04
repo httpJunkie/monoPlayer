@@ -50,11 +50,11 @@ Finally, link to the JavaScript file near the end of your `<body>` section.
 
 ## Motivation
 
-I needed a simple audio player for a project that had no audio scrubber, simply play, stop, pause and mute buttons. It needed to be small so that it could load below the product and the client wanted the user to listen in entirety, not to skip around. The widget needed to be completely customizable if needed but out of the box they wanted it to appear similar to the HTML5 audio controls. They did not want to purchase a widgt or control from a thrid party and the deliverable was to be something that their team could easily implement and again customize if needed. Considering the request, I made the the deal contingent on the fact that the control would be open source and I would not charge them. The initial code and commit took me 2 hours to write and is very basic and minimal, just as intended. It's written in JavaScript using the HTML5 Audio API.
+I needed a simple audio player for a project, simply play, stop, pause and mute. It needed to be small so that it could load below the product and the client wanted the user to listen in entirety, not to skip around. The widget needed to be completely customizable if needed but out of the box they wanted it to appear similar to the HTML5 audio controls. The initial code and commit took me 2 hours to write and is very basic and minimal, just as intended. It's written in JavaScript using the HTML5 Audio API. My intent is to start small from this need that I had for a simple customizable widget and build on layers of functionality.
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
+Clone or download from github. More installation options coming soon.
 
 ## Contributors
 
@@ -62,4 +62,4 @@ This is a very small project that anyone can get involved with an make a differe
 
 ## License
 
-A short snippet describing the license (MIT, Apache, etc.)
+See license.txt
