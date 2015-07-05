@@ -1,0 +1,29 @@
+{
+  "name": "monoPlayer",
+  "version": "0.0.1",
+  "homepage": "https://github.com/httpJunkie/monoPlayer",
+  "authors": [
+    "Eric S. Bishard <eric@httpjunkie.com>"
+  ],
+  "description": "A customizable HTML5 (Web Audio API) component",
+  "main": "demo.html",
+  "keywords": [
+    "web",
+    "audio",
+    "api",
+    "javascript",
+    "css",
+    "html5"
+  ],
+  "license": "Creative Commons Attribution 3.0 License",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.3"
+  }
+}
