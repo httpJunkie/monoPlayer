@@ -1,0 +1,23 @@
+{
+  "name": "monoplayer",
+  "version": "0.0.1",
+  "description": "A customizable HTML5 (Web Audio API) component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/httpJunkie/monoPlayer.git"
+  },
+  "author": "Eric S. Bishard <eric@httpjunkie.com>",
+  "license": "Creative Commons Attribution 3.0 License",
+  "bugs": {
+    "url": "https://github.com/httpJunkie/monoPlayer/issues"
+  },
+  "homepage": "https://github.com/httpJunkie/monoPlayer#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.3"
+  }
+}
