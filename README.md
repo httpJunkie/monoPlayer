@@ -54,7 +54,10 @@ I needed a simple audio player for a project, simply play, stop, pause and mute.
 
 ## Installation
 
-Clone or download from github. More installation options coming soon.
+* Run ```git clone https://github.com/httpJunkie/monoPlayer.git```
+* Run ```cd monoPlayer```
+* Run ```bower install```
+* Run ```npm install```
 
 ## Contributors
 
