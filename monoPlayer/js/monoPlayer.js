@@ -6,11 +6,14 @@
 var monoPlayer = (function () {
 	 
 	// Initialize buttons on page load	
-	window.addEventListener('load', initButtons, false);
+	window.addEventListener('load', initPlayer, false);
 	
 	// global audio variable (right now just grabs the first track)
 	var audio = document.getElementsByTagName('audio')[0];
 	audio.ontimeupdate = updateTime;
+	
+	//Global Player Settings
+	var hourPlusWidth = "180px";
 	
 	// variables for each button
 	var playBtn = document.getElementById('play');
@@ -29,8 +32,8 @@ var monoPlayer = (function () {
 	var muteOffClass = "icon-mute_off";
 	
 	
-	// check to make sure elements were named correctly in html
-	function initButtons() {
+	// InitializePlayer and buttons
+	function initPlayer() {
 		
 		if(playBtn != null){
 			playBtn.addEventListener('click', playAudio, false);
@@ -40,7 +43,7 @@ var monoPlayer = (function () {
 		}
 		
 		if(pauseBtn != null){
-			pauseBtn.addEventListener('click', pausAudio, false );
+			pauseBtn.addEventListener('click', pauseAudio, false );
 		} else {
 			console.log('Pause button class is not named "pause"');
 			alertProblemButtons = true;
@@ -64,9 +67,13 @@ var monoPlayer = (function () {
 			alert('WARNING:' + '\n' + 'Problem with monoPlayer buttons "see console logs"');
 		}
 		
-		// console.log("Loaded track is: "+ Math.round(audio.duration) +" seconds long");
-		// console.log("Loaded track playback rate is: " + audio.playbackRate);
-		
+		function isHourLong() {
+			var audioSeconds = Math.round(audio.duration);
+			audioSeconds > 3600 ? audio.isHourLong = true : audio.isHourLong = false;
+			console.log("Is hour long? " + audio.isHourLong);
+		}
+		isHourLong();
+
 	}
 	
 	// function called by the play button
@@ -89,11 +96,20 @@ var monoPlayer = (function () {
 		
 		if(audio.paused && !audio.muted && audio.currentTime <= 0) {
 			audio.play();
+			hourLongResize()
+		}
+	}
+	
+	function hourLongResize() {
+		if (audio.isHourLong) {
+			monoPlayerDiv.style.width = hourPlusWidth;
+			console.log("monoPlayer has been resized to: " + hourPlusWidth
+				+ "to compensate for longer track time display")
 		}
 	}
 	
 	// function called by the pause button
-	function pausAudio() {
+	function pauseAudio() {
 		audio.pause();
 	}
 	
@@ -151,32 +167,23 @@ var monoPlayer = (function () {
 	}
 	
 	function convertTime(timeInSeconds) {
-		
 		timeInSeconds = Math.round(timeInSeconds);
 		var hours = Math.floor(timeInSeconds / 3600);
 		var minutes = Math.floor(timeInSeconds / 60) % 60;
 		var seconds = Math.ceil(timeInSeconds) % 60;
 		
-		if (hours > 0) {
-			monoPlayerDiv.style.width = '178px';
-			return addLeadingZero(hours)+":"+addLeadingZero(minutes)+":"+addLeadingZero(seconds);
+		var displayTime = hours < 1 ?
+			 formatTime(minutes)+":"+formatTime(seconds) : 
+				formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds)
+	
+		return displayTime;
+		
+		function formatTime(time) {
+			var formattedTime = time < 10 ? "0" + time.toString() : time;
+			return formattedTime;
 		}
-		
-		else {
-			return addLeadingZero(minutes)+":"+addLeadingZero(seconds);
-		}	
-		
 	}
 	
-	function addLeadingZero(time) {
-		
-		if (time < 10) {
-			return "0" + time.toString();
-		}
-		
-		else {
-			return time;
-		}
-		
-	}
-}());
+	
+	
+} ());
