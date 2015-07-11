@@ -1,12 +1,19 @@
 	/*Main monoPlayer (outer div) class*/
 	.monoPlayer {
-		width: 160px;
-		text-align: left;
 		border-radius: 5px;
-		background-color: #424242;
+		text-align: left;
 		padding: 3px;
-		background: -webkit-linear-gradient(top, #2F2727, #424242);
+		width: 160px;
 		color: #efefef;
+		
+		/*Fallback for linear-gradient*/
+		background-color: #424242;
+		
+		background: linear-gradient(top, #2F2727, #424242); /* Standard syntax */
+		background: -webkit-linear-gradient(top, #2F2727, #424242); /* For Safari 5.1 to 6.0 */
+		background: -moz-linear-gradient(top, #2F2727, #424242); /* For Firefox 3.6 to 15 */
+		background: -ms-linear-gradient(top, #2F2727, #424242); /* For IE 10 */
+		background: -o-linear-gradient(top, #2F2727, #424242); /* For Opera 11.1 to 12.0 */
 	}
 	
 	/*Basic button properties*/
