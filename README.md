@@ -19,7 +19,6 @@ Put the folowing code in your `<head>` tag:
 ```
 	<link rel="stylesheet" href="monoPlayer/icons/mfglabs_iconset.css">
 	<link rel="stylesheet" href="monoPlayer/css/monoPlayer.css">
-	<script src="monoPlayer/js/monoPlayer.js"></script>
 ```
 
 Link to your primary and backup audio files in your `<body>` section.  
@@ -34,11 +33,12 @@ Link to your primary and backup audio files in your `<body>` section.
 Use the following template anywhere on your page, but inside the `<body>` section.  
 
 ```
-	<div class="monoPlayer">
-		<button id="play" class="btn"><i class="icon-play"></i></button>
-		<button id="paus" class="btn"><i class="icon-pause"></i></button>
-		<button id="stop" class="btn"><i class="icon-stop"></i></button>
-		<button id="mute" class="btn"><i id="muteIcon" class="icon-mute_off"></i></button>
+	<div class="monoPlayer shadowFx3" id="monoPlayer">
+		<button id="play" title="Play" class="btn"><i class="icon-play" ></i></button>
+		<button id="pause" title="Pause" class="btn"><i class="icon-pause"></i></button>
+		<button id="stop" title="Stop" class="btn"><i class="icon-stop" ></i></button>
+		<button id="mute" title="Mute" class="btn"><i id="muteIcon" class="icon-mute_off"></i></button>
+		<span id="audioTime" class="audioTime">00:00</span>
 	</div>
 ```
 
