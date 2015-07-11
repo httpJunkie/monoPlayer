@@ -11,6 +11,7 @@ var monoPlayer = (function () {
 	// global audio variable (right now just grabs the first track)
 	var audio = document.getElementsByTagName('audio')[0];
 	audio.ontimeupdate = updateTime;
+	
 	// variables for each button
 	var playBtn = document.getElementById('play');
 	var pauseBtn = document.getElementById('pause');
@@ -18,6 +19,7 @@ var monoPlayer = (function () {
 	var muteBtn = document.getElementById('mute');
 	var muteIcon = document.getElementById('muteIcon');
 	var monoPlayerDiv = document.getElementById('monoPlayer');
+	var audioTime = document.getElementById("audioTime");
 	
 	// debug/warning variables
 	var alertProblemButtons = false;
@@ -95,27 +97,9 @@ var monoPlayer = (function () {
 		audio.pause();
 	}
 	
-	// function called by the mute button
-	function muteAudio() {
-		
-		if(audio.paused && !audio.muted && audio.currentTime <= 0) {
-			audio.muted = false;
-		}
-		
-		else if(!audio.paused && !audio.muted  && audio.currentTime > 0) {
-			audio.muted = true;
-			muteIcon.className = muteOnClass;
-		}
-		
-		else if(!audio.paused && audio.muted == true) {
-		  	audio.muted = false;
-		  	muteIcon.className = muteOffClass;
-		}
-		
-	}
-	
 	// function called by the stop button
 	function stopAudio() {
+		
 		if (audio.paused && audio.muted && audio.currentTime > 0) {
 			audio.currentTime = 0;
 			audio.pause();
@@ -142,37 +126,57 @@ var monoPlayer = (function () {
 		
 	}
 	
-	// function that updates the time and display on the view
+	// function called by the mute button
+	function muteAudio() {
+		
+		if(audio.paused && !audio.muted && audio.currentTime <= 0) {
+			audio.muted = false;
+		}
+		
+		else if(!audio.paused && !audio.muted  && audio.currentTime > 0) {
+			audio.muted = true;
+			muteIcon.className = muteOnClass;
+		}
+		
+		else if(!audio.paused && audio.muted == true) {
+		  	audio.muted = false;
+		  	muteIcon.className = muteOffClass;
+		}
+		
+	}
+	
+	// function that updates elapsed time and displays it
 	function updateTime() {
-		var audioTime = document.getElementById("audioTime");
 		audioTime.innerHTML = convertTime(audio.currentTime);
 	}
 	
 	function convertTime(timeInSeconds) {
+		
 		timeInSeconds = Math.round(timeInSeconds);
 		var hours = Math.floor(timeInSeconds / 3600);
 		var minutes = Math.floor(timeInSeconds / 60) % 60;
 		var seconds = Math.ceil(timeInSeconds) % 60;
 		
-		if (hours>0)
-		{
-			monoPlayerDiv.style.width = '170px';
+		if (hours > 0) {
+			monoPlayerDiv.style.width = '178px';
 			return addLeadingZero(hours)+":"+addLeadingZero(minutes)+":"+addLeadingZero(seconds);
 		}
-		else
-		{
+		
+		else {
 			return addLeadingZero(minutes)+":"+addLeadingZero(seconds);
 		}	
 		
 	}
-	function addLeadingZero(time){
-		if (time < 10)
-		{
-			return "0"+time.toString();
+	
+	function addLeadingZero(time) {
+		
+		if (time < 10) {
+			return "0" + time.toString();
 		}
-		else
-		{
+		
+		else {
 			return time;
 		}
+		
 	}
 }());

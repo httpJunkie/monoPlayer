@@ -1,23 +1,53 @@
+	/*Main monoPlayer (outer div) class*/
 	.monoPlayer {
-		width: 150px;
+		width: 160px;
 		text-align: left;
 		border-radius: 5px;
 		background-color: #424242;
-		padding: 4px;
+		padding: 3px;
+		background: -webkit-linear-gradient(top, #2F2727, #424242);
+		color: #efefef;
 	}
+	
+	/*Basic button properties*/
 	.btn {
 		background-color: Transparent;
         background-repeat:no-repeat;
-		color: #efefef;
         border: none;
 		outline: none;
         cursor: pointer;
         overflow: hidden;
 	}
+	
+	.audioTime {
+		float: right;
+		margin: 3px 4px 0 0;
+	}
+
 	/*Required if using MfgLabs-Icons*/
 	.icon-mute_on {
 		margin-left: -0.125em;
 	}
-	.audioTime {
-		color: aliceblue;
+	
+	/*Optional Drop/Box Shadow Effects*/
+	.shadowFx1 {
+		box-shadow: 0 10px 6px -6px #777;
+  		-webkit-box-shadow: 0 10px 6px -6px #777;
+       	   -moz-box-shadow: 0 10px 6px -6px #777;
+	}
+	
+	.shadowFx2
+	{
+  		position:relative;
+    	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       	   -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+                box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}
+	
+	.shadowFx3
+	{
+  		position:relative;
+    	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       	   -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+                box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	}
