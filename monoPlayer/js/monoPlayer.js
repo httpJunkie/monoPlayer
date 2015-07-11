@@ -67,12 +67,11 @@ var monoPlayer = (function () {
 			alert('WARNING:' + '\n' + 'Problem with monoPlayer buttons "see console logs"');
 		}
 		
-		function isHourLong() {
+		var isHourLong = (function() {
 			var audioSeconds = Math.round(audio.duration);
 			audioSeconds > 3600 ? audio.isHourLong = true : audio.isHourLong = false;
 			console.log("Is hour long? " + audio.isHourLong);
-		}
-		isHourLong();
+		})();
 
 	}
 	
