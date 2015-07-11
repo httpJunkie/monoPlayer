@@ -104,7 +104,7 @@ var monoPlayer = (function () {
 		if (audio.isHourLong) {
 			monoPlayerDiv.style.width = hourPlusWidth;
 			console.log("monoPlayer has been resized to: " + hourPlusWidth
-				+ "to compensate for longer track time display")
+				+ " to compensate for longer track time display")
 		}
 	}
 	
@@ -173,7 +173,7 @@ var monoPlayer = (function () {
 		var seconds = Math.ceil(timeInSeconds) % 60;
 		
 		var displayTime = hours < 1 ?
-			 formatTime(minutes)+":"+formatTime(seconds) : 
+			 formatTime(minutes) + ":" + formatTime(seconds) : 
 				formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds)
 	
 		return displayTime;
@@ -183,7 +183,5 @@ var monoPlayer = (function () {
 			return formattedTime;
 		}
 	}
-	
-	
 	
 } ());
