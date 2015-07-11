@@ -10,6 +10,7 @@ var monoPlayer = (function () {
 	
 	// global audio variable (right now just grabs the first track)
 	var audio = document.getElementsByTagName('audio')[0];
+	audio.ontimeupdate = updateTime;
 	
 	// variables for each button
 	var playBtn = document.getElementById('play');
@@ -17,6 +18,8 @@ var monoPlayer = (function () {
 	var stopBtn = document.getElementById('stop');
 	var muteBtn = document.getElementById('mute');
 	var muteIcon = document.getElementById('muteIcon');
+	var monoPlayerDiv = document.getElementById('monoPlayer');
+	var audioTime = document.getElementById("audioTime");
 	
 	// debug/warning variables
 	var alertProblemButtons = false;
@@ -24,6 +27,7 @@ var monoPlayer = (function () {
 	// icon style variables
 	var muteOnClass = "icon-mute_on";
 	var muteOffClass = "icon-mute_off";
+	
 	
 	// check to make sure elements were named correctly in html
 	function initButtons() {
@@ -86,31 +90,11 @@ var monoPlayer = (function () {
 		if(audio.paused && !audio.muted && audio.currentTime <= 0) {
 			audio.play();
 		}
-		
 	}
 	
 	// function called by the pause button
 	function pausAudio() {
 		audio.pause();
-	}
-	
-	// function called by the mute button
-	function muteAudio() {
-		
-		if(audio.paused && !audio.muted && audio.currentTime <= 0) {
-			audio.muted = false;
-		}
-		
-		else if(!audio.paused && !audio.muted  && audio.currentTime > 0) {
-			audio.muted = true;
-			muteIcon.className = muteOnClass;
-		}
-		
-		else if(!audio.paused && audio.muted == true) {
-		  	audio.muted = false;
-		  	muteIcon.className = muteOffClass;
-		}
-		
 	}
 	
 	// function called by the stop button
@@ -141,5 +125,58 @@ var monoPlayer = (function () {
 		}
 		
 	}
+	
+	// function called by the mute button
+	function muteAudio() {
 		
- }());
+		if(audio.paused && !audio.muted && audio.currentTime <= 0) {
+			audio.muted = false;
+		}
+		
+		else if(!audio.paused && !audio.muted  && audio.currentTime > 0) {
+			audio.muted = true;
+			muteIcon.className = muteOnClass;
+		}
+		
+		else if(!audio.paused && audio.muted == true) {
+		  	audio.muted = false;
+		  	muteIcon.className = muteOffClass;
+		}
+		
+	}
+	
+	// function that updates elapsed time and displays it
+	function updateTime() {
+		audioTime.innerHTML = convertTime(audio.currentTime);
+	}
+	
+	function convertTime(timeInSeconds) {
+		
+		timeInSeconds = Math.round(timeInSeconds);
+		var hours = Math.floor(timeInSeconds / 3600);
+		var minutes = Math.floor(timeInSeconds / 60) % 60;
+		var seconds = Math.ceil(timeInSeconds) % 60;
+		
+		if (hours > 0) {
+			monoPlayerDiv.style.width = '178px';
+			return addLeadingZero(hours)+":"+addLeadingZero(minutes)+":"+addLeadingZero(seconds);
+		}
+		
+		else {
+			return addLeadingZero(minutes)+":"+addLeadingZero(seconds);
+		}	
+		
+	}
+	
+	function addLeadingZero(time) {
+		
+		if (time < 10) {
+			return "0" + time.toString();
+		}
+		
+		else {
+			return time;
+		}
+		
+	}
+}());
