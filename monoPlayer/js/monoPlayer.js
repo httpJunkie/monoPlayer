@@ -3,10 +3,24 @@
 	Version: 0.1
 */
 
-var monoPlayer = (function () {
-	 
-	// Initialize buttons on page load	
-	window.addEventListener('load', initPlayer, false);
+var monoPlayer = function () {
+	
+	// global variable for html string for Player
+	var audioPlayerHtml =
+		'<button id="play" title="Play" class="btn"><i class="icon-play"></i></button>'+
+		'<button id="pause" title="Pause" class="btn"><i class="icon-pause"></i></button>'+
+		'<button id="stop" title="Stop" class="btn"><i class="icon-stop"></i></button>'+
+		'<button id="mute" title="Mute" class="btn"><i id="muteIcon" class="icon-mute_off"></i></button>'+
+		'<span id="audioTime" class="audioTime">00:00</span>';
+	
+	// get main div to insert buttons
+	var monoPlayerDiv = document.getElementById('monoPlayer');
+	
+	// insert the player buttons 
+	monoPlayerDiv.innerHTML = audioPlayerHtml;
+	
+	// Initialize buttons on page load	(commented out because it should be called from the init method)
+	//window.addEventListener('load', initPlayer, false);
 	
 	// global audio variable (right now just grabs the first track)
 	var audio = document.getElementsByTagName('audio')[0];
@@ -21,7 +35,6 @@ var monoPlayer = (function () {
 	var stopBtn = document.getElementById('stop');
 	var muteBtn = document.getElementById('mute');
 	var muteIcon = document.getElementById('muteIcon');
-	var monoPlayerDiv = document.getElementById('monoPlayer');
 	var audioTime = document.getElementById("audioTime");
 	
 	// debug/warning variables
@@ -183,4 +196,14 @@ var monoPlayer = (function () {
 		}
 	}
 	
-} ());
+	return {
+    	// main function to initiate the module
+		init : function () {
+			initPlayer();
+		}
+	
+		// anotherConfig: function () {
+		// configSpecifiedMethodCalls();
+		// }
+	}
+}();

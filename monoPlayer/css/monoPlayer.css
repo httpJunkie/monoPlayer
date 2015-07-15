@@ -24,11 +24,12 @@
 		outline: none;
         cursor: pointer;
         overflow: hidden;
+		color: #efefef;
 	}
 	
 	.audioTime {
 		float: right;
-		margin: 3px 4px 0 0;
+		margin: 2px 2px 0 0;
 	}
 
 	/*Required if using MfgLabs-Icons*/
