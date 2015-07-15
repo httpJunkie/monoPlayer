@@ -33,19 +33,16 @@ Link to your primary and backup audio files in your `<body>` section.
 Use the following template anywhere on your page, but inside the `<body>` section.  
 
 ```
-	<div class="monoPlayer shadowFx3" id="monoPlayer">
-		<button id="play" title="Play" class="btn"><i class="icon-play" ></i></button>
-		<button id="pause" title="Pause" class="btn"><i class="icon-pause"></i></button>
-		<button id="stop" title="Stop" class="btn"><i class="icon-stop" ></i></button>
-		<button id="mute" title="Mute" class="btn"><i id="muteIcon" class="icon-mute_off"></i></button>
-		<span id="audioTime" class="audioTime">00:00</span>
-	</div>
+	<div class="monoPlayer" id="monoPlayer"></div>
 ```
 
 Finally, link to the JavaScript file near the end of your `<body>` section.  
 
 ```
 	<script src="monoPlayer/js/monoPlayer.js"></script>
+	<script>
+		monoPlayer.init();
+	</script>
 ```
 
 ## Motivation
