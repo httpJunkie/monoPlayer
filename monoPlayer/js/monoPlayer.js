@@ -22,6 +22,9 @@ var monoPlayer = function () {
 	// Initialize buttons on page load	(commented out because it should be called from the init method)
 	//window.addEventListener('load', initPlayer, false);
 	
+	window.addEventListener("keypress", KeyPressHandler);
+	
+	
 	// global audio variable (right now just grabs the first track)
 	var audio = document.getElementsByTagName('audio')[0];
 	audio.ontimeupdate = updateTime;
@@ -193,6 +196,25 @@ var monoPlayer = function () {
 		function formatTime(time) {
 			var formattedTime = time < 10 ? "0" + time.toString() : time;
 			return formattedTime;
+		}
+	}
+	
+	
+	// function to handle all key press events (shortcuts)
+	function KeyPressHandler(event) {
+		//  KeyCode 32 is for Space 
+		if (event.keyCode === 32) {
+			handleSpaceKeyPress();
+		} else if (event.keyCode === 109 || event.keyCode === 77) {
+			muteAudio();
+		}
+			
+		function handleSpaceKeyPress() {
+			if (audio.paused) {
+				playAudio();
+			} else {
+				pauseAudio();
+			}
 		}
 	}
 	
