@@ -1,6 +1,7 @@
 /*
 	monoPlayer.js
 	Version: 0.1
+  Author: Eric Bishard
 */
 
 var monoPlayer = function () {
