@@ -12,7 +12,8 @@ var monoPlayer = function () {
 		'<button id="pause" title="Pause" class="btn"><i class="icon-pause"></i></button>'+
 		'<button id="stop" title="Stop" class="btn"><i class="icon-stop"></i></button>'+
 		'<button id="mute" title="Mute" class="btn"><i id="muteIcon" class="icon-mute_off"></i></button>'+
-		'<span id="audioTime" class="audioTime">00:00</span>';
+		'<input type="range" id="volume"><span id="audioTime" class="audioTime">00:00</span>';
+		
 	
 	// get main div to insert buttons
 	var monoPlayerDiv = document.getElementById('monoPlayer');
@@ -31,7 +32,7 @@ var monoPlayer = function () {
 	audio.ontimeupdate = updateTime;
 	
 	//Global Player Settings
-	var hourPlusWidth = "180px";
+	var hourPlusWidth = "300px";
 	
 	// variables for each button
 	var playBtn = document.getElementById('play');
@@ -40,6 +41,8 @@ var monoPlayer = function () {
 	var muteBtn = document.getElementById('mute');
 	var muteIcon = document.getElementById('muteIcon');
 	var audioTime = document.getElementById("audioTime");
+	var volume = document.getElementById('volume');
+	volume.addEventListener('change', volumeChangeHandler);
 	
 	// debug/warning variables
 	var alertProblemButtons = false;
@@ -217,6 +220,10 @@ var monoPlayer = function () {
 				pauseAudio();
 			}
 		}
+	}
+	
+	function volumeChangeHandler() {
+		audio.volume = parseFloat(volume.value) / 100;
 	}
 	
 	return {
